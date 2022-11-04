@@ -1,1 +1,28 @@
-<p>catalogue works!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+<body>
+            <mat-card *ngFor="let animal of animals">
+                <a routerLink="/description">
+                    <img mat-card-image [src]="animal.image" alt="">
+                </a>
+        
+                <mat-card-content>
+                    <mat-card-title>
+                        <h1>{{animal.name}}</h1>
+                    </mat-card-title>
+        
+                    <mat-card-content>
+                        <p>{{animal.description}}</p>
+                    </mat-card-content>
+                </mat-card-content>
+        
+            </mat-card>
+</body>
+
+</html>
