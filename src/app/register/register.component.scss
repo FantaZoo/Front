@@ -1,0 +1,77 @@
+$gainsboro: #d8dbe2ff;
+$light-steel-blue: #a9bcd0ff;
+$cadet-blue: #58a4b0ff;
+$charcoal: #373f51ff;
+$eerie-black: #1b1b1eff;
+
+mat-grid-list{
+    width: 99%;
+}
+
+body.mat-typographie{
+    width: 100%;
+}
+
+.connexion-page-container {
+    display: flex;
+    margin-top: 100px;
+
+    .column1 {
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to bottom, white, #CED4DA, white) 10;
+    }
+
+    .form {
+        width: 50%;
+        margin: auto;
+        margin-bottom: 50px;
+        font-family: "Urbanist";
+    
+        .form-space {
+            margin: 5% auto;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: $charcoal;
+            padding-bottom: 30px;;
+        }
+    
+        .form-title {
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        .form-button {
+            color: $gainsboro;;
+            background-color: $cadet-blue;
+        }
+
+        .error {
+            color: red;
+        }
+    }
+}
+
+
+@media all and (max-width: 800px)
+{
+    .connexion-page-container
+    {
+        display: block;
+        margin-top: 0;
+
+        .form {
+            margin: auto;
+            margin-top: 50px;
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    }
+
+}
