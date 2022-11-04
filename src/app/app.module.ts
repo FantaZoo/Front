@@ -14,6 +14,8 @@ import { PopUpPaymentComponent } from './pop-up-payment/pop-up-payment.component
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { GestionAnimalsComponent } from './gestion-animals/gestion-animals.component';
 import { TreasuryComponent } from './treasury/treasury.component';
+import { HeaderComponent } from './header/header.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { TreasuryComponent } from './treasury/treasury.component';
     PopUpPaymentComponent,
     GestionUsersComponent,
     GestionAnimalsComponent,
-    TreasuryComponent
+    TreasuryComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

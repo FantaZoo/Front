@@ -1,0 +1,30 @@
+$gainsboro: #d8dbe2ff;
+$light-steel-blue: #a9bcd0ff;
+$cadet-blue: #58a4b0ff;
+$charcoal: #373f51ff;
+$eerie-black: #1b1b1eff;
+
+nav {
+    background-color: $cadet-blue;
+    color: $gainsboro;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+
+    .header-home {
+        margin-left: 0;
+    }
+    .header-title {
+        margin: auto;
+    }
+    .header-icons {
+        margin-right: 0;
+    }
+
+    a {
+        color: $gainsboro;
+        &:hover {
+        color: $charcoal;
+        }
+    }
+}
+
