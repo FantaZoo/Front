@@ -11,14 +11,16 @@ import { RegisterComponent } from './register/register.component';
 import { TreasuryComponent } from './treasury/treasury.component';
 
 export const routes: Routes = [
+  // ROUTE INITIALE
+  {
+    path: '',
+    component: CatalogueComponent,
+  },
+
   // ROUTES COMMUNE
   {
     path:'register',
     component : RegisterComponent
-  },
-  {
-    path: 'catalogue',
-    component: CatalogueComponent
   },
   {
     path: 'description',
