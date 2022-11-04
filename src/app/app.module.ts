@@ -15,6 +15,7 @@ import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { GestionAnimalsComponent } from './gestion-animals/gestion-animals.component';
 import { TreasuryComponent } from './treasury/treasury.component';
 import { HeaderComponent } from './header/header.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
