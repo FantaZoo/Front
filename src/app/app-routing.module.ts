@@ -23,7 +23,7 @@ export const routes: Routes = [
     component : RegisterComponent
   },
   {
-    path: 'description',
+    path: 'animals/:id',
     component: DescriptionComponent
   },
 
