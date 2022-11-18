@@ -4,7 +4,7 @@ import { Species } from "./species";
 
 export class Animals {
     id!: number;
-    name!: string;
+    animal_name!: string;
     image!: string;
     description!: string;
     price!: number;

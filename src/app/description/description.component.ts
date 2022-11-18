@@ -10,7 +10,7 @@ import { Species } from '../share/species';
 export class DescriptionComponent implements OnInit {
   animal = {
     id: 1,
-    name: 'Phoenix',
+    animal_name: 'Phoenix',
     image: 'https://imagizer.imageshack.com/a/img923/4374/IGrnJh.png',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
     price: 1000,
@@ -34,6 +34,10 @@ export class DescriptionComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.animal)
     
+  }
+
+  addToCart() {
+    console.log('add to cart')
   }
 
 }
