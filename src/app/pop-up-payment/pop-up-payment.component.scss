@@ -1,0 +1,24 @@
+ngx-paypal{
+    display: block;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+}
+
+button{
+    background-color: #58a4b0ff !important;
+    color: aliceblue;
+}
+
+.annuler{
+    border-color: #58a4b0ff !important;
+    background-color: aliceblue !important;
+    color: #58a4b0ff;
+    display: block;
+}
+
+.valider{
+    background-color: #58a4b0ff !important;
+    color: aliceblue;
+    display: block;
+}

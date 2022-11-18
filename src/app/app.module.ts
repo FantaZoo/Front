@@ -23,6 +23,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormCreateUserComponent } from './form-create-user/form-create-user.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { NgxPayPalModule } from 'ngx-paypal';
+
+
 
 @NgModule({
   declarations: [
@@ -51,7 +55,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    GooglePayButtonModule,
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
