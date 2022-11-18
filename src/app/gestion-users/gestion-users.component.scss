@@ -1,0 +1,30 @@
+mat-card{
+    display: inline-block;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 25%;
+    margin-left: 6%;
+    margin-bottom: 6%;
+    background-size: cover;
+}
+
+.footer{
+    margin-left: 35%;
+    background-color: #58a4b0ff !important;
+}
+
+.createUser{
+    position: block;
+    margin: 3%;
+    background-color: #58a4b0ff !important;
+    color: aliceblue;
+}
+
+@media screen and (max-width: 768px) {
+    mat-card{
+        width: 100%;
+        margin: 0;
+    }
+    button{
+        margin-left: 30%;
+    }
+}

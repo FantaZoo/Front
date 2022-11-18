@@ -67,7 +67,7 @@ export class CatalogueComponent implements OnInit {
       price: 1000,
       status: 'Disponible',
       species: Species.Unicorn,
-      sexe: 'Femelle',
+      sexe: '22cm',
       age: 2,
       diet: Diet.Herbivore
     },
