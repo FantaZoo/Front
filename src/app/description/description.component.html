@@ -1,1 +1,55 @@
-<p>description works!</p>
+<div class="container">
+    <div class="sub-container">
+        <div class="id-title">
+            <p class="name">{{animal.name}}</p>
+        </div>
+        <div class="id-title">
+            <p class="species">
+                {{animal.species}}
+            </p>
+        </div>
+    </div>
+    <div class="sub-container">
+        <div class="description">
+            {{animal.description}}
+        </div>
+    </div>
+    <div class="sub-container">
+        <img src="{{animal.image}}" alt="Image de l'animal">
+    </div>
+    <div class="sub-container cards ">
+        <mat-card class="card p-2">
+            <mat-card-content>
+                <span class="material-icons">cake</span>
+                <span class="text"> {{animal.age}} ans</span>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card p-2">
+            <mat-card-content>
+                <span class="material-icons" *ngIf="animal.sexe == 'Femelle'">female</span>
+                <span class="material-icons" *ngIf="animal.sexe == 'Mâle'">male</span>
+                <span class="text"> {{animal.sexe}}</span>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card p-2">
+            <mat-card-content>
+                <span class="material-icons">flatware</span>
+                <span class="text"> {{animal.diet}}</span>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card p-2">
+            <mat-card-content>
+                <span class="material-icons">euro</span>
+                <span class="text"> {{animal.price}}€</span>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card p-2">
+            <mat-card-content>
+                <span class="material-icons" *ngIf="animal.status == 'Disponible'" style="color: green">check</span>
+                <span class="material-icons" *ngIf="animal.status == 'Vendu'" style="color: red">close</span>
+                <span class="text" *ngIf="animal.status == 'Disponible'" style="color: green"> {{animal.status}}</span>
+                <span class="text" *ngIf="animal.status == 'Vendu'" style="color: red"> {{animal.status}}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

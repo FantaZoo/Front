@@ -22,7 +22,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormCreateUserComponent } from './form-create-user/form-create-user.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { FormCreateUserComponent } from './form-create-user/form-create-user.com
     MatTableModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

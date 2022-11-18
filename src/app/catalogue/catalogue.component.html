@@ -8,8 +8,8 @@
 
 <body>
             <mat-card *ngFor="let animal of animals">
-                <a routerLink="/description">
-                    <img mat-card-image [src]="animal.image" alt="">
+                <a routerLink="/animals/{{animal.id}}">
+                    <img mat-card-image alt="">
                 </a>
                 <mat-card-content>
                     <mat-card-title>
