@@ -11,6 +11,4 @@ export class FormCreateUserComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  
 }
