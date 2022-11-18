@@ -16,6 +16,8 @@ import { GestionAnimalsComponent } from './gestion-animals/gestion-animals.compo
 import { TreasuryComponent } from './treasury/treasury.component';
 import { HeaderComponent } from './header/header.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
