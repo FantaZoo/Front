@@ -1,13 +1,14 @@
 <div class="container">
     <div class="sub-container">
         <div class="id-title">
-            <p class="name">{{animal.name}}</p>
+            <p class="name">{{animal.animal_name}}</p>
         </div>
         <div class="id-title">
             <p class="species">
                 {{animal.species}}
             </p>
         </div>
+        <button mat-raised-button (click)="addToCart()">Ajouter au panier</button>
     </div>
     <div class="sub-container">
         <div class="description">

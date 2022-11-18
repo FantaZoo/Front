@@ -13,7 +13,7 @@ export class GestionAnimalsComponent implements OnInit {
   animals: Animals[] = [
     {
       id: 1,
-      name: 'Phoenix',
+      animal_name: 'Phoenix',
       image: 'https://imagizer.imageshack.com/a/img923/4374/IGrnJh.png',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
       price: 1000,
@@ -25,7 +25,7 @@ export class GestionAnimalsComponent implements OnInit {
     },
     {
       id: 2,
-      name: 'Dragon',
+      animal_name: 'Dragon',
       image: './assets/squirrelswim.webp',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
       price: 1000,
@@ -37,7 +37,7 @@ export class GestionAnimalsComponent implements OnInit {
     },
     {
       id: 3,
-      name: 'Unicorn',
+      animal_name: 'Unicorn',
       image: './assets/squirrel.jpg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
       price: 1000,
@@ -49,7 +49,7 @@ export class GestionAnimalsComponent implements OnInit {
     },
     {
       id: 4,
-      name: 'Unicorn',
+      animal_name: 'Unicorn',
       image: './assets/squirrel.jpg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
       price: 1000,
@@ -61,7 +61,7 @@ export class GestionAnimalsComponent implements OnInit {
     },
     {
       id: 5,
-      name: 'Unicorn',
+      animal_name: 'Unicorn',
       image: './assets/squirrel.jpg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
       price: 1000,
