@@ -1,9 +1,16 @@
 .container {
-    width: 100%;
+    width: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    // height: 80%;
+
+    button{
+        position: block;
+        background-color: #58a4b0ff !important;
+        margin-top: 10%;
+        color: aliceblue;
+        width: 50%;
+    }
 
     .sub-container {
     display: block;
