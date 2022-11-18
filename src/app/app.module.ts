@@ -15,19 +15,16 @@ import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { GestionAnimalsComponent } from './gestion-animals/gestion-animals.component';
 import { TreasuryComponent } from './treasury/treasury.component';
 import { HeaderComponent } from './header/header.component';
-import {MatCardModule} from '@angular/material/card';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { FormCreateUserComponent } from './form-create-user/form-create-user.component';
+import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormCreateUserComponent } from './form-create-user/form-create-user.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { GooglePayButtonModule } from '@google-pay/button-angular';
 import { NgxPayPalModule } from 'ngx-paypal';
-
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTabsModule} from '@angular/material/tabs';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,8 +53,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     MatFormFieldModule,
     MatButtonModule,
     MatGridListModule,
-    GooglePayButtonModule,
-    NgxPayPalModule
+    NgxPayPalModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
