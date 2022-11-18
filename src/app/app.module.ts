@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +16,13 @@ import { GestionAnimalsComponent } from './gestion-animals/gestion-animals.compo
 import { TreasuryComponent } from './treasury/treasury.component';
 import { HeaderComponent } from './header/header.component';
 import {MatCardModule} from '@angular/material/card';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormCreateUserComponent } from './form-create-user/form-create-user.component';
+
 
 @NgModule({
   declarations: [
@@ -29,14 +36,21 @@ import {MatCardModule} from '@angular/material/card';
     GestionUsersComponent,
     GestionAnimalsComponent,
     TreasuryComponent,
-    HeaderComponent
+    HeaderComponent,
+    BoardAdminComponent,
+    FormCreateUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

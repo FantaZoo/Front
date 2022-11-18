@@ -1,0 +1,36 @@
+mat-card{
+    display: inline-block;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 25%;
+    margin-top: 6%;
+    margin-left: 6%;
+    margin-bottom: 6%;
+    background-size: cover;
+}
+
+a{
+    text-decoration: none;
+    img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: top;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    mat-card{
+        width: 100%;
+        margin: 0;
+    }
+    h1{
+        font-size: 30%;
+    }
+}
+
+button {
+    border: none;
+    background: none;
+    margin-left: 42%;
+}

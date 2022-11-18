@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <header>
+        <h1>
+            BOARD
+        </h1>
+    </header>
+
+    <body>
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+            <mat-tab label="Animaux">
+                <app-gestion-animals></app-gestion-animals>
+            </mat-tab>
+            <mat-tab label="Utilisateurs">
+                <app-gestion-users></app-gestion-users>
+            </mat-tab>
+            <mat-tab label="Tresorerie">
+                <app-treasury></app-treasury>
+            </mat-tab>
+          </mat-tab-group>
+    </body>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { CartComponent } from './cart/cart.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { DescriptionComponent } from './description/description.component';
@@ -53,6 +54,10 @@ export const routes: Routes = [
   {
     path : 'treasury',
     component : TreasuryComponent
+  },
+  {
+    path: 'board-admin',
+    component : BoardAdminComponent
   }
 ];
 
