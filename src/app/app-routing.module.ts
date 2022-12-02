@@ -5,6 +5,7 @@ import { CartComponent } from './cart/cart.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { DescriptionComponent } from './description/description.component';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
+import { HomeComponent } from './home/home.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PopUpPaymentComponent } from './pop-up-payment/pop-up-payment.component';
 import { RegisterComponent } from './register/register.component';
@@ -14,9 +15,12 @@ export const routes: Routes = [
   // ROUTE INITIALE
   {
     path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'list',
     component: CatalogueComponent,
   },
-
   // ROUTES COMMUNE
   {
     path:'register',

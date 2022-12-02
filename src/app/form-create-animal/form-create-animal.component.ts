@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AnimalForm } from '../forms/animal.form';
 import { Animals } from '../share/animals';
@@ -16,7 +17,7 @@ export class FormCreateAnimalComponent implements OnInit {
   animal : Animals = new Animals();
   animals!: FormGroup;
 
-  constructor(private http: HttpClient, private formAnimal: AnimalForm) { }
+  constructor(private http: HttpClient, private formAnimal: AnimalForm, private router: Router) { }
 
   ngOnInit(): void {
     this.animals = this.formAnimal.createEmptyAnimal();
@@ -29,6 +30,9 @@ export class FormCreateAnimalComponent implements OnInit {
       .subscribe((data) => {
         this.animal = data;
         console.log(data);
+        this.router.navigate(['/']).then(() => {
+          window.location.reload();
+        });
       }, (error) => {
         console.log(error);
       });

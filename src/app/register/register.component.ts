@@ -44,19 +44,26 @@ export class RegisterComponent implements OnInit {
           is_admin: false
         }
         console.log(user);
-        this.http.post(`${environment.url}/users/`, user)
-          .subscribe((data) => {
-            console.log(data);
-            this.mailConnexion = "";
-            this.passwordConnexion = "";
-            this.mailInscription = "";
-            this.passwordInscription = "";
-            this.passwordcheckInscription = "";
-            this.firstname = "";
-            this.lastname = "";
-            this.phone = "";
-            this.address = "";
-            alert('Inscription réussie, veuillez vous connecter.');
+        this.http.get(`${environment.url}/users/?email=${user.email}`)
+          .subscribe((data: any) => {
+            if (data.length > 0) {
+              alert('Cet email est déjà utilisé');
+            } else {
+              this.http.post(`${environment.url}/users/`, user)
+              .subscribe((data) => {
+                console.log(data);
+                this.mailConnexion = "";
+                this.passwordConnexion = "";
+                this.mailInscription = "";
+                this.passwordInscription = "";
+                this.passwordcheckInscription = "";
+                this.firstname = "";
+                this.lastname = "";
+                this.phone = "";
+                this.address = "";
+                alert('Inscription réussie, veuillez vous connecter.');
+              });
+            }
           });
       }
     }

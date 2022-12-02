@@ -16,17 +16,22 @@ export class GestionUsersComponent implements OnInit {
   constructor(public dialog: MatDialog,
     private http: HttpClient) { }
 
-  ngOnInit(): void {
+  getUsers(){
     this.http.get<User[]>(`${environment.url}/users/`)
     .subscribe((data) => {
       this.users = data;
     });
   }
 
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
   delete(id: number){
     this.http.delete<User[]>(`${environment.url}/users/` + id + '/')
     .subscribe((data)=>{
       console.log(data, 'delete');
+      this.getUsers();
     })
   }
 }
