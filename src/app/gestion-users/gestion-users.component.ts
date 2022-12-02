@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { FormCreateUserComponent } from '../form-create-user/form-create-user.component';
+import { environment } from 'src/environments/environment';
+import { User } from '../share/user';
 
 @Component({
   selector: 'app-gestion-users',
@@ -9,35 +11,22 @@ import { FormCreateUserComponent } from '../form-create-user/form-create-user.co
 })
 export class GestionUsersComponent implements OnInit {
 
-  users = [
-    {
-      firstname: 'Olivier',
-      lastname: 'Blaivie',
-      email: 'olivier.blaivie@ynov.com',
-      adresse : '2 place de l\'Europe 31000 Toulouse',
-      tel: '06 00 00 00 00',
-      cart: false
-    },
-    {
-      firstname: 'Julien',
-      lastname: 'Ferrand',
-      email: 'julien.ferrand@ynov.com',
-      adresse : '5 place de l\'Europe 31000 Toulouse',
-      tel: '07 00 00 00 00',
-      cart: false
-    },
-  ]
+  users : User[] = []; 
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get<User[]>(`${environment.url}/users/`)
+    .subscribe((data) => {
+      this.users = data;
+    });
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(FormCreateUserComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  delete(id: number){
+    this.http.delete<User[]>(`${environment.url}/users/` + id + '/')
+    .subscribe((data)=>{
+      console.log(data, 'delete');
+    })
   }
 }

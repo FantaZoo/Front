@@ -15,7 +15,6 @@ import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { TreasuryComponent } from './treasury/treasury.component';
 import { HeaderComponent } from './header/header.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { FormCreateUserComponent } from './form-create-user/form-create-user.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -41,7 +40,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TreasuryComponent,
     HeaderComponent,
     BoardAdminComponent,
-    FormCreateUserComponent,
     FormCreateAnimalComponent
   ],
   imports: [

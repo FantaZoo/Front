@@ -39,17 +39,10 @@ export class CatalogueComponent implements OnInit {
     });
   }
 
-  delete(id: any){
+  delete(id: number){
     this.http.delete<Animals>(`${environment.url}/animals/` + id + '/')
     .subscribe((data)=>{
       console.log(data, 'delete');
     })
   }
-
-
-  // this.http.delete<Vehicule[]>("http://localhost:8000/api/" + 'vehicule' + '/' + this.vehicule[0].id + '/').subscribe((data) => {
-  //     this.vehicule = data;
-  //     console.log(this.vehicule)
-  //   });
-
 }
