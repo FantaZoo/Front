@@ -18,27 +18,19 @@ export class CartComponent implements OnInit {
 
   displayedColumns: string[] = ['nom', 'prix', 'action'];
   dataSource!: any;
-  products: any = [];
+  products: ShoppingCart[] = [];
 
   constructor(public dialog: MatDialog,
     private http: HttpClient) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     const userid = Number(localStorage.getItem('user'));
     this.http.get(`${environment.url}/shoppingcarts/?userID=${userid}`)
     .subscribe((data) => {
       this.dataSource = data;
-      console.log(data);
-      for (let i = 0; i < this.dataSource.length; i++) {
-        this.http.get(`${environment.url}/animals/${this.dataSource[i].productID}/`)
-        .subscribe((data2: {}) => {
-          console.log(data2);
-          this.products.push(data2);
-        });
-      }
+      console.log('cfgcc', data);
+      this.products = this.dataSource;
     });
-    console.log(this.products);
-    
   }
 
   openDialog() {
