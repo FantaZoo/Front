@@ -1,4 +1,4 @@
-<header>
+<header *ngIf="isConnected && isAdmin">
     <button class="createAnimal" mat-button (click)="openDialog()">Créer un animal</button>
 </header>
 
@@ -14,7 +14,7 @@
                         <p>{{animal.description}}</p>
                     </mat-card-content>
                 </mat-card-content>
-                <mat-card-footer>
+                <mat-card-footer *ngIf="isConnected && isAdmin">
                     <button (click)="delete(animal.id)">
                         <span class="material-icons">
                             heart_broken

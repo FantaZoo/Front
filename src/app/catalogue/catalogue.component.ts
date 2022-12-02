@@ -16,12 +16,24 @@ export class CatalogueComponent implements OnInit {
 
   animals: Animals[] = [];
 
+  isConnected: boolean = false;
+  isAdmin: boolean = false;
+
   constructor(
     private http: HttpClient,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
+    const storageUser = localStorage.getItem('user');
+    if (storageUser) {
+      this.isConnected = true;
+    }
+    const storageAdmin = localStorage.getItem('admin');
+    if (storageAdmin) {
+      this.isAdmin = true;
+    }
+    
     console.log("url : ", `${environment.url}/animals/`);
     
     this.http.get<Animals[]>(`${environment.url}/animals/`)
