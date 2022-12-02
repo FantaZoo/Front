@@ -9,7 +9,7 @@
             </p>
         </div>
         <div>
-            <button mat-button>Ajouter au panier</button>
+            <button mat-button (click)="addToCart()">Ajouter au panier</button>
         </div>
     </div>
     <div class="sub-container">
@@ -48,10 +48,10 @@
         </mat-card>
         <mat-card class="card p-2">
             <mat-card-content>
-                <span class="material-icons" *ngIf="animal.status == 'Disponible'" style="color: green">check</span>
-                <span class="material-icons" *ngIf="animal.status == 'Vendu'" style="color: red">close</span>
-                <span class="text" *ngIf="animal.status == 'Disponible'" style="color: green"> {{animal.status}}</span>
-                <span class="text" *ngIf="animal.status == 'Vendu'" style="color: red"> {{animal.status}}</span>
+                <span class="material-icons" *ngIf="animal.animal_status == 'A VENDRE'" style="color: green">check</span>
+                <span class="material-icons" *ngIf="animal.animal_status == 'VENDU'" style="color: red">close</span>
+                <span class="text" *ngIf="animal.animal_status == 'A VENDRE'" style="color: green"> Disponible</span>
+                <span class="text" *ngIf="animal.animal_status == 'VENDU'" style="color: red"> Vendu</span>
             </mat-card-content>
         </mat-card>
     </div>

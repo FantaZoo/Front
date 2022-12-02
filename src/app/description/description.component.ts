@@ -48,12 +48,20 @@ export class DescriptionComponent implements OnInit {
         console.log(data);
         this.animal = data;
         this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
+        console.log(this.animal);
+        
       });
     
   }
 
   addToCart() {
     console.log('add to cart')
+    const item = {
+      userID: 1,
+      productID: parseInt(this.href, 10),
+    }
+    console.log(item);
+    
   }
 
 }

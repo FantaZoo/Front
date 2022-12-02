@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     TreasuryComponent,
     HeaderComponent,
     BoardAdminComponent,
-    FormCreateUserComponent
+    FormCreateUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatGridListModule,
     NgxPayPalModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
