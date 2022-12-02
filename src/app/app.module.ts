@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,7 +40,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TreasuryComponent,
     HeaderComponent,
     BoardAdminComponent,
-    FormCreateUserComponent,
     FormCreateAnimalComponent
   ],
   imports: [
