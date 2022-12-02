@@ -13,11 +13,9 @@ import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PopUpPaymentComponent } from './pop-up-payment/pop-up-payment.component';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
-import { GestionAnimalsComponent } from './gestion-animals/gestion-animals.component';
 import { TreasuryComponent } from './treasury/treasury.component';
 import { HeaderComponent } from './header/header.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { FormCreateUserComponent } from './form-create-user/form-create-user.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -25,7 +23,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { NgxPayPalModule } from 'ngx-paypal';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { FormCreateAnimalComponent } from './form-create-animal/form-create-animal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +38,11 @@ import { HttpClientModule } from '@angular/common/http';
     PaymentComponent,
     PopUpPaymentComponent,
     GestionUsersComponent,
-    GestionAnimalsComponent,
     TreasuryComponent,
     HeaderComponent,
     BoardAdminComponent,
     FormCreateUserComponent,
+    FormCreateAnimalComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +58,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     NgxPayPalModule,
     HttpClientModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [],

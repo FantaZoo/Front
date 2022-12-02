@@ -1,7 +1,3 @@
-<header>
-    <button class="createUser" mat-button (click)="openDialog()">Créer un utilisateur</button>
-</header>
-
 <mat-card *ngFor="let user of users">
     <mat-card-content>
         <mat-card-title>
@@ -9,12 +5,12 @@
         </mat-card-title>
         <mat-card-content>
             <p>E-mail : {{user.email}}</p>
-            <p>Telephone : {{user.tel}}</p>
-            <p>Adresse : {{user.adresse}}</p>
-            <p>Panier : {{user.cart}}</p>
+            <p>Telephone : {{user.phone_number}}</p>
+            <p>Adresse : {{user.address}}</p>
+            <p>Admin : {{user.is_admin}}</p>
         </mat-card-content>
         <mat-card-footer>
-            <button class="footer" mat-raised-button color="primary">Supprimer</button>
+            <button class="footer" mat-raised-button color="primary" (click)="delete(user.id)">Supprimer</button>
         </mat-card-footer>
     </mat-card-content>
 </mat-card>
