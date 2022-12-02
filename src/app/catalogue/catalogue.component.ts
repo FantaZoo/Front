@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Animals } from '../share/animals';
-import { Diet } from '../share/diet';
-import { Species } from '../share/species';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FormCreateAnimalComponent } from '../form-create-animal/form-create-animal.component';
@@ -24,6 +22,16 @@ export class CatalogueComponent implements OnInit {
     private dialog: MatDialog
   ) { }
 
+  getAnimals() {
+    console.log("url : ", `${environment.url}/animals/`);
+    
+    this.http.get<Animals[]>(`${environment.url}/animals/`)
+      .subscribe((data) => {
+        console.log(data);
+        this.animals = data;
+      });
+  }
+
   ngOnInit(): void {
     const storageUser = localStorage.getItem('user');
     if (storageUser) {
@@ -33,14 +41,8 @@ export class CatalogueComponent implements OnInit {
     if (storageAdmin) {
       this.isAdmin = true;
     }
-    
-    console.log("url : ", `${environment.url}/animals/`);
-    
-    this.http.get<Animals[]>(`${environment.url}/animals/`)
-      .subscribe((data) => {
-        console.log(data);
-        this.animals = data;
-      });
+
+    this.getAnimals();
   }
 
   openDialog() {
@@ -55,6 +57,7 @@ export class CatalogueComponent implements OnInit {
     this.http.delete<Animals>(`${environment.url}/animals/` + id + '/')
     .subscribe((data)=>{
       console.log(data, 'delete');
+      this.getAnimals();
     })
   }
 }
