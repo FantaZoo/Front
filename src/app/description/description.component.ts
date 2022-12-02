@@ -35,14 +35,15 @@ export class DescriptionComponent implements OnInit {
     
   }
 
-  addToCart() {
-    this.shoppingCart = new ShoppingCart();
-    this.shoppingCart.productID.id = this.animal.id;
-    this.shoppingCart.userID.id = Number(localStorage.getItem('user'));
-    this.http.post<ShoppingCart>(`${environment.url}/shoppingcarts/`, this.shoppingCart.userID && this.shoppingCart.productID)
+  addToCart() {    
+    const item = {
+      productID: this.animal.id,
+      userID: Number(localStorage.getItem('user')),
+    }    
+    this.http.post<ShoppingCart>(`${environment.url}/addtocart/`, item)
       .subscribe((data) => {
-        this.shoppingCart = data;
         console.log(data);
+        alert("Animal ajouté au panier");
       });
   }
 

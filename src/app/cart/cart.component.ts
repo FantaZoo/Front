@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
   displayedColumns: string[] = ['nom', 'prix', 'action'];
   dataSource!: any;
   products: any = [];
+  total_price: number = 0;
 
   constructor(public dialog: MatDialog,
     private http: HttpClient) { }
@@ -29,15 +30,23 @@ export class CartComponent implements OnInit {
     .subscribe((data) => {
       this.dataSource = data;
       console.log(data);
-      for (let i = 0; i < this.dataSource.length; i++) {
+      let price = 0;
+      for (let i = 0; i < this.dataSource.length; i++) {        
         this.http.get(`${environment.url}/animals/${this.dataSource[i].productID}/`)
-        .subscribe((data2: {}) => {
-          console.log(data2);
+        .subscribe((data2: any) => {
+          console.log("data2 : ", data2);
+          price += data2.price;
           this.products.push(data2);
+          if (i === this.dataSource.length - 1) {
+            this.total_price = price;
+            console.log("total : ", this.total_price);
+          }
         });
       }
-    });
-    console.log(this.products);
+      console.log(this.products);
+      console.log("total : ", this.total_price);
+    })
+    
     
   }
 
