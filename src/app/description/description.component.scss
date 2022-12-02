@@ -3,6 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 40px;
 
     button{
         position: block;
@@ -100,6 +101,7 @@
     /* Rédigez vos propriétés CSS ici */
     .container {
         display: block;
+        margin-top: 0;
 
         .sub-container {
             width: 100%;

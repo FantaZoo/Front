@@ -29,9 +29,9 @@
         </mat-card>
         <mat-card class="card p-2">
             <mat-card-content>
-                <span class="material-icons" *ngIf="animal.sexe == 'Femelle'">female</span>
-                <span class="material-icons" *ngIf="animal.sexe == 'Mâle'">male</span>
-                <span class="text"> {{animal.sexe}}</span>
+                <span class="material-icons" *ngIf="animal.sexe == 'F'">female</span>
+                <span class="material-icons" *ngIf="animal.sexe == 'M'">male</span>
+                <span class="text"> {{sexe}} </span>
             </mat-card-content>
         </mat-card>
         <mat-card class="card p-2">
@@ -43,7 +43,7 @@
         <mat-card class="card p-2">
             <mat-card-content>
                 <span class="material-icons">euro</span>
-                <span class="text"> {{animal.price}}€</span>
+                <span class="text"> {{animal.price}}</span>
             </mat-card-content>
         </mat-card>
         <mat-card class="card p-2">
