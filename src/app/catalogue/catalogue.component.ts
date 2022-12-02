@@ -4,6 +4,8 @@ import { Diet } from '../share/diet';
 import { Species } from '../share/species';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { FormCreateAnimalComponent } from '../form-create-animal/form-create-animal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-catalogue',
@@ -12,71 +14,11 @@ import { environment } from 'src/environments/environment';
 })
 export class CatalogueComponent implements OnInit {
 
-  animals: Animals[] = [
-    // {
-    //   id: 1,
-    //   name: 'Phoenix',
-    //   image: 'https://imagizer.imageshack.com/a/img923/4374/IGrnJh.png',
-    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
-    //   price: 1000,
-    //   status: 'Disponible',
-    //   species: Species.Phoenix, 
-    //   sexe: 'Femelle',
-    //   age: 2,
-    //   diet: Diet.Omnivore
-    // },
-    // {
-    //   id: 2,
-    //   name: 'Dragon',
-    //   image: './assets/squirrelswim.webp',
-    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
-    //   price: 1000,
-    //   status: 'Disponible',
-    //   species: Species.Dragon,
-    //   sexe: 'Femelle',
-    //   age: 2,
-    //   diet: Diet.Carnivore
-    // },
-    // {
-    //   id: 3,
-    //   name: 'Unicorn',
-    //   image: './assets/squirrel.jpg',
-    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
-    //   price: 1000,
-    //   status: 'Disponible',
-    //   species: Species.Unicorn,
-    //   sexe: 'Femelle',
-    //   age: 2,
-    //   diet: Diet.Herbivore
-    // },
-    // {
-    //   id: 4,
-    //   name: 'Unicorn',
-    //   image: './assets/squirrel.jpg',
-    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
-    //   price: 1000,
-    //   status: 'Disponible',
-    //   species: Species.Unicorn,
-    //   sexe: 'Femelle',
-    //   age: 2,
-    //   diet: Diet.Herbivore
-    // },
-    // {
-    //   id: 5,
-    //   name: 'Unicorn',
-    //   image: './assets/squirrel.jpg',
-    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
-    //   price: 1000,
-    //   status: 'Disponible',
-    //   species: Species.Unicorn,
-    //   sexe: '22cm',
-    //   age: 2,
-    //   diet: Diet.Herbivore
-    // },
-  ];
+  animals: Animals[] = [];
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -88,5 +30,26 @@ export class CatalogueComponent implements OnInit {
         this.animals = data;
       });
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(FormCreateAnimalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  delete(id: any){
+    this.http.delete<Animals>(`${environment.url}/animals/` + id + '/')
+    .subscribe((data)=>{
+      console.log(data, 'delete');
+    })
+  }
+
+
+  // this.http.delete<Vehicule[]>("http://localhost:8000/api/" + 'vehicule' + '/' + this.vehicule[0].id + '/').subscribe((data) => {
+  //     this.vehicule = data;
+  //     console.log(this.vehicule)
+  //   });
 
 }

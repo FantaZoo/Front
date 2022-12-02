@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Création d'un animal</h2>
+
+<mat-dialog-content [formGroup]="animals">
+    <mat-form-field>
+      <input matInput placeholder="Nom" formControlName="animal_name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Espèce" formControlName="species">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Age" formControlName="age">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="image" formControlName="image">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Prix" formControlName="price">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="description" formControlName="description">
+    </mat-form-field>
+    <mat-form-field>
+      <select matNativeControl formControlName="typeSpecies">
+        <option value="" selected></option>
+        <option value="REPTILE">Reptile</option>
+        <option value="POISSON">Poisson</option>
+        <option value="MAMMIFERE">Mammifère</option>
+        <option value="INSECTE">Insecte</option>
+        <option value="OISEAU">Oiseau</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <select matNativeControl formControlName="sexe">
+        <option value="" selected></option>
+        <option value="M">Mâle</option>
+        <option value="F">Femelle</option>
+        <option value="ND">ND - Non défini</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <select matNativeControl formControlName="diet">
+        <option value=""></option>
+        <option value="HERBIVORE">Herbivore</option>
+        <option value="CARNIVORE">Carnivore</option>
+        <option value="OMNIVORE">Omnivore</option>
+        <option value="ND">ND - Non défini</option>
+      </select>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close class="annuler">Annuler</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="creer" (click)="create()">Créer</button>
+</mat-dialog-actions>

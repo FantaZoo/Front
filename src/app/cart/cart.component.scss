@@ -9,13 +9,17 @@ h1{
 button{
     background-color: #58a4b0ff !important;
     margin-bottom: 3%;
-}
-
-ng-container{
-    width: 100%;
+    margin-right: 3%;
+    color: aliceblue;
 }
 
 div{
     text-align: end;
+}
+
+table{
+    position: fixed;
+    width: 94%;
+    margin-left: 3%;
     margin-right: 3%;
 }

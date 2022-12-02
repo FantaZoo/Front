@@ -1,6 +1,6 @@
 import { Diet } from "./diet";
-import { Status } from "./status";
 import { Species } from "./species";
+import { TypeSpecies } from "./typeSpecies";
 
 export class Animals {
     id!: number;
@@ -13,4 +13,5 @@ export class Animals {
     sexe!: string;
     age!: number;
     diet!: Diet;
+    typeSpecies!: TypeSpecies;
 }
