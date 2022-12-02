@@ -4,6 +4,8 @@ import { Species } from '../share/species';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ShoppingCart } from '../share/shoppingCart';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-description',
@@ -12,31 +14,10 @@ import { environment } from 'src/environments/environment';
 })
 export class DescriptionComponent implements OnInit {
   href: string = this.router.url.split('/')[2];
-  
-  // animal = {
-  //   id: 1,
-  //   animal_name: 'Phoenix',
-  //   image: 'https://imagizer.imageshack.com/a/img923/4374/IGrnJh.png',
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.',
-  //   price: 1000,
-  //   status: "Disponible",
-  //   species: Species.Phoenix, 
-  //   sexe: 'Femelle',
-  //   age: 2,
-  //   diet: Diet.Omnivore
-  // };
-
   animal: any;
-
-  // dataToDisplay = [
-  //   {name: 'Age', value: this.animal.age},
-  //   {name: 'Sexe', value: this.animal.sexe},
-  //   {name: 'Régime', value: this.animal.diet},
-  //   {name: 'Statut', value: this.animal.status},
-  //   {name: "Prix", value: this.animal.price}
-  // ]
-
   sexe: string = "";
+
+  shoppingCart!: ShoppingCart;
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -55,13 +36,14 @@ export class DescriptionComponent implements OnInit {
   }
 
   addToCart() {
-    console.log('add to cart')
-    const item = {
-      userID: 1,
-      productID: parseInt(this.href, 10),
-    }
-    console.log(item);
-    
+    this.shoppingCart = new ShoppingCart();
+    this.shoppingCart.productID.id = this.animal.id;
+    this.shoppingCart.userID.id = Number(localStorage.getItem('user'));
+    this.http.post<ShoppingCart>(`${environment.url}/shoppingcarts/`, this.shoppingCart.userID && this.shoppingCart.productID)
+      .subscribe((data) => {
+        this.shoppingCart = data;
+        console.log(data);
+      });
   }
 
 }

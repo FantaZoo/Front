@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
 import { PopUpPaymentComponent } from '../pop-up-payment/pop-up-payment.component';
+import { ShoppingCart } from '../share/shoppingCart';
 
 export interface Cart{
   id: number;
@@ -14,12 +17,27 @@ export interface Cart{
 export class CartComponent implements OnInit {
 
   displayedColumns: string[] = ['nom', 'quantite', 'prix', 'action'];
-  dataSource: any;
+  dataSource!: any;
+  products!: any;
 
-
-  constructor(public dialog: MatDialog ) { }
+  constructor(public dialog: MatDialog,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
+    // const userid = Number(localStorage.getItem('user'));
+    // this.http.get(`${environment.url}/shoppingcarts/?userID=${userid}`)
+    // .subscribe((data) => {
+    //   this.dataSource = data;
+    //   console.log(data);
+    //   for (let i = 0; i < this.dataSource.length; i++) {
+    //     this.http.get(`${environment.url}/animals/${this.dataSource[i].productID}`)
+    //     .subscribe((data2) => {
+    //       this.products.push(data2);
+    //     });
+    //   }
+    // });
+    // console.log(this.products);
+    
   }
 
   openDialog() {
