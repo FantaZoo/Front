@@ -19,6 +19,12 @@ a{
     }
 }
 
+button {
+    border: none;
+    background: none;
+    margin-left: 42%;
+}
+
 @media screen and (max-width: 768px) {
     mat-card{
         width: 100%;
