@@ -4,19 +4,24 @@
     </div>
     <div class="header-title">FANTAZOO</div>
 
-    <a routerLink="/board-admin">
+    <!-- <a routerLink="/board-admin">
         <button>board-admin</button>
-    </a>
+    </a> -->
 
-    <a routerLink="/cart">
+    <a routerLink="/cart" *ngIf="isConnected && !isAdmin">
         <span class="material-icons">
             shopping_basket
         </span>
     </a>
 
-    <a routerLink="/register">
+    <a routerLink="/register" *ngIf="!isConnected">
         <span class="material-icons">
             login
+        </span>
+    </a>
+    <a (click)="logOut()" *ngIf="isConnected">
+        <span class="material-icons">
+            logout
         </span>
     </a>
 </nav>

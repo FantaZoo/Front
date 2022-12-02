@@ -3,31 +3,43 @@
       <form class="form">
         <h1 class="form-title">Connexion</h1>
         <div class="form-group form-space">
-          <input type="email" class="form-control" id="inputEmail2" aria-describedby="emailHelp" placeholder="Adresse mail" name="mail2">
+          <!-- <input type="email" id="mailConnexion" class="form-control" name="mailConnexion" [(ngModel)="mailConnexion" /> -->
+          <input type="email" class="form-control" id="inputEmail2" aria-describedby="emailHelp" placeholder="Adresse mail" name="mail2" [(ngModel)]="mailConnexion">
         </div>
         <div class="form-group form-space">
-          <input type="password" class="form-control" id="inputPassword2" placeholder="Mot de passe" name="password2">
+          <!-- <input type="password" id="passwordConnexion" class="form-control" name="passwordConnexion" (ngModel)="passwordConnexion" /> -->
+          <input type="password" class="form-control" id="inputPassword2" placeholder="Mot de passe" name="password2" [(ngModel)]="passwordConnexion">
         </div>
         <!-- <p class="error">Merci de renseigner l'email et le mot de passe.</p>
         <p class="error">L'email ou le mot de passe est incorrect.</p> -->
-        <button type="submit" class="btn form-space form-button">Se connecter</button>
+        <button type="submit" class="btn form-space form-button" (click)="logIn()">Se connecter</button>
       </form>
     </div>
     <div class="p-2 column1 flex-fill">
         <form class="form">
           <h1 class="form-title">Inscription</h1>
           <div class="form-group form-space">
-            <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Adresse mail" name="mail1">
-            <!-- <p class="error">Le format de l'email est incorrect.</p> -->
+            <input type="text" class="form-control" id="firstname" aria-describedby="firstname" placeholder="Prénom" name="firstname" [(ngModel)]="firstname">
           </div>
           <div class="form-group form-space">
-            <input type="password" class="form-control" id="inputPassword1" placeholder="Mot de passe" name="password1">
+            <input type="text" class="form-control" id="lastname" aria-describedby="lastname" placeholder="Nom" name="lastname" [(ngModel)]="lastname">
           </div>
           <div class="form-group form-space">
-            <input type="password" class="form-control" id="inputPasswordcheck" placeholder="Confirmation du mot de passe" name="passwordcheck">
+            <input type="email" class="form-control" id="mailInscription" aria-describedby="mailInscription" placeholder="Adresse mail" name="mailInscription" [(ngModel)]="mailInscription">
           </div>
-          <!-- <p class="error">Merci de renseigner l'email et le mot de passe.</p> -->
-          <button type="submit" class="btn form-space form-button">S'inscrire</button>
+          <div class="form-group form-space">
+            <input type="phone" class="form-control" id="phone" aria-describedby="phone" placeholder="Téléphone" name="phone" [(ngModel)]="phone">
+          </div>
+          <div class="form-group form-space">
+            <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Adresse" name="address" [(ngModel)]="address">
+          </div>
+          <div class="form-group form-space">
+            <input type="password" class="form-control" id="inputPassword1" placeholder="Mot de passe" name="password1" [(ngModel)]="passwordInscription">
+          </div>
+          <div class="form-group form-space">
+            <input type="password" class="form-control" id="passwordcheckInscription" placeholder="Confirmation du mot de passe" name="passwordcheckInscription" [(ngModel)]="passwordcheckInscription">
+          </div>
+          <button type="button" class="btn form-space form-button" (click)="signUp()">S'inscrire</button>
         </form>
       </div>
 </div>
