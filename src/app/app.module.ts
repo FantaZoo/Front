@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { FormCreateAnimalComponent } from './form-create-animal/form-create-animal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TreasuryComponent,
     HeaderComponent,
     BoardAdminComponent,
-    FormCreateAnimalComponent
+    FormCreateAnimalComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

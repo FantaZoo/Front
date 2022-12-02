@@ -30,7 +30,7 @@ export class DescriptionComponent implements OnInit {
         this.animal = data;
         this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
         console.log(this.animal);
-        
+
       });
     
   }
