@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
 import { PopUpPaymentComponent } from '../pop-up-payment/pop-up-payment.component';
-import { ShoppingCart } from '../share/shoppingCart';
 
 export interface Cart{
   id: number;
@@ -23,8 +22,8 @@ export class CartComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
     private http: HttpClient) { }
-
-  ngOnInit(): void {
+  
+  getCart(): void {
     const userid = Number(localStorage.getItem('user'));
     this.http.get(`${environment.url}/shoppingcarts/?userID=${userid}`)
     .subscribe((data) => {
@@ -35,6 +34,7 @@ export class CartComponent implements OnInit {
         this.http.get(`${environment.url}/animals/${this.dataSource[i].productID}/`)
         .subscribe((data2: any) => {
           console.log("data2 : ", data2);
+          data2.productID = this.dataSource[i].id;
           price += data2.price;
           this.products.push(data2);
           if (i === this.dataSource.length - 1) {
@@ -46,8 +46,10 @@ export class CartComponent implements OnInit {
       console.log(this.products);
       console.log("total : ", this.total_price);
     })
-    
-    
+  }
+
+  ngOnInit(): void {
+    this.getCart();
   }
 
   openDialog() {
@@ -58,5 +60,14 @@ export class CartComponent implements OnInit {
     });
   }
 
+  deleteItem(id: number) {
+    console.log(id);
+    
+    this.http.delete(`${environment.url}/shoppingcarts/${id}/`)
+    .subscribe((data) => {
+      console.log("data after ${environment.url}/shoppingcarts/${id}/ : ", data);
+      window.location.reload();
+    })
+  }
 
 }
