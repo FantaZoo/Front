@@ -3,7 +3,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
 import { PopUpPaymentComponent } from '../pop-up-payment/pop-up-payment.component';
+import { Orders } from '../share/orders';
 import { ShoppingCart } from '../share/shoppingCart';
+import { User } from '../share/user';
 
 export interface Cart{
   id: number;
@@ -20,6 +22,7 @@ export class CartComponent implements OnInit {
   dataSource!: any;
   products: any = [];
   total_price: number = 0;
+  orders: Orders = new Orders();
 
   constructor(public dialog: MatDialog,
     private http: HttpClient) { }
@@ -29,6 +32,7 @@ export class CartComponent implements OnInit {
     this.http.get(`${environment.url}/shoppingcarts/?userID=${userid}`)
     .subscribe((data) => {
       this.dataSource = data;
+      this.orders.userID = userid;
       console.log(data);
       let price = 0;
       for (let i = 0; i < this.dataSource.length; i++) {        
@@ -37,24 +41,27 @@ export class CartComponent implements OnInit {
           console.log("data2 : ", data2);
           price += data2.price;
           this.products.push(data2);
+          let numberAnimals = this.products.length; 
+          this.orders.total_animals = numberAnimals;
+          console.log("numberAnimals : ", numberAnimals);         
           if (i === this.dataSource.length - 1) {
             this.total_price = price;
-            console.log("total : ", this.total_price);
+            console.log("total : ", price);
+            this.orders.total_price = price;
           }
         });
       }
-      console.log(this.products);
-      console.log("total : ", this.total_price);
     })
     
     
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(PopUpPaymentComponent);
+    const dialogRef = this.dialog.open(PopUpPaymentComponent, {
+      data: {userID: this.orders.userID, price: this.orders.total_price, animal: this.orders.total_animals}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
