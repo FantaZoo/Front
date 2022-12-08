@@ -43,6 +43,10 @@ export class PopUpPaymentComponent implements OnInit {
         console.log(element)
         this.http.delete<ShoppingCart>(`${environment.url}/shoppingcarts/${element.productID}/`).subscribe((res: any) => {
         });
+        this.http.patch(`${environment.url}/animals/${element.id}/`, {animal_status: "VENDU"}).subscribe((res: any) => {
+          console.log(res);
+          
+        });
       });
       this.dialogRef.close();
     }
