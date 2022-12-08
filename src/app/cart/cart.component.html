@@ -13,7 +13,7 @@
     <mat-card-content class="cart-list-title">
       <p>Nom</p>
       <p>Prix</p>
-      <p>CartID</p>
+      <p></p>
     </mat-card-content>
   </mat-card>
   <div *ngFor="let product of products, let i = index">
@@ -21,7 +21,11 @@
       <mat-card-content class="cart-list-item">
         <p>{{product.animal_name}}</p>
         <p>{{product.price}} €</p>
-        <p>{{dataSource[i].id}}</p>
+        <a (click)="deleteItem(product.productID)">
+          <span class="material-icons">
+            delete
+          </span>
+        </a>
       </mat-card-content>
     </mat-card>
   </div>

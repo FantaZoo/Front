@@ -14,4 +14,5 @@ export class Animals {
     age!: number;
     diet!: Diet;
     typeSpecies!: TypeSpecies;
+    animal_status!: string;
 }
