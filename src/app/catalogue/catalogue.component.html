@@ -14,7 +14,7 @@
                         <p>{{animal.description}}</p>
                     </mat-card-content>
                 </mat-card-content>
-                <mat-card-footer *ngIf="isConnected && isAdmin">
+                <mat-card-footer *ngIf="isConnected && isAdmin && animal.animal_status == 'A VENDRE'">
                     <button (click)="delete(animal.id)">
                         <span class="material-icons">
                             heart_broken

@@ -33,21 +33,17 @@ export class CartComponent implements OnInit {
     .subscribe((data) => {
       this.dataSource = data;
       this.orders.userID = userid;
-      console.log(data);
       let price = 0;
       for (let i = 0; i < this.dataSource.length; i++) {        
         this.http.get(`${environment.url}/animals/${this.dataSource[i].productID}/`)
         .subscribe((data2: any) => {
-          console.log("data2 : ", data2);
           data2.productID = this.dataSource[i].id;
           price += data2.price;
           this.products.push(data2);
           let numberAnimals = this.products.length; 
           this.orders.total_animals = numberAnimals;
-          console.log("numberAnimals : ", numberAnimals);         
           if (i === this.dataSource.length - 1) {
             this.total_price = price;
-            console.log("total : ", price);
             this.orders.total_price = price;
           }
         });
@@ -65,16 +61,15 @@ export class CartComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     });
   }
 
   deleteItem(id: number) {
-    console.log(id);
-    
     this.http.delete(`${environment.url}/shoppingcarts/${id}/`)
     .subscribe((data) => {
-      console.log("data after ${environment.url}/shoppingcarts/${id}/ : ", data);
       window.location.reload();
     })
   }

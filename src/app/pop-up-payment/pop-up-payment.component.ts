@@ -34,18 +34,14 @@ export class PopUpPaymentComponent implements OnInit {
       const shoppingCart = {
         products: this.data.carts
       }
-      console.log(this.data);
       this.http.post<Orders>(`${environment.url}/orders/`, order).subscribe((res: any) => {
         });
       alert("Paiement validé")
 
       this.data.cart.forEach((element: any) => {
-        console.log(element)
         this.http.delete<ShoppingCart>(`${environment.url}/shoppingcarts/${element.productID}/`).subscribe((res: any) => {
         });
         this.http.patch(`${environment.url}/animals/${element.id}/`, {animal_status: "VENDU"}).subscribe((res: any) => {
-          console.log(res);
-          
         });
       });
       this.dialogRef.close();
@@ -91,23 +87,18 @@ export class PopUpPaymentComponent implements OnInit {
         layout: 'vertical'
       },
       onApprove: (data, actions) => {
-        console.log('onApprove - transaction was approved, but not authorized', data, actions);
         actions.order.get().then((details: any) => {
-          console.log('onApprove - you can get full order details inside onApprove: ', details);
         });
       },
       onClientAuthorization: (data) => {
-        console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
         this.showSuccess = true;
       },
       onCancel: (data, actions) => {
-        console.log('OnCancel', data, actions);
       },
       onError: err => {
-        console.log('OnError', err);
+        console.log(err);
       },
       onClick: (data, actions) => {
-        console.log('onClick', data, actions);
       },
     };
   }

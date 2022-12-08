@@ -23,13 +23,10 @@ export class CatalogueComponent implements OnInit {
   ) { }
 
   getAnimals() {
-    console.log("url : ", `${environment.url}/animals/`);
     
     this.http.get<Animals[]>(`${environment.url}/animals/`)
       .subscribe((data) => {
-        console.log(data);
         if (!this.isAdmin) {
-          console.log("not admin");
           data.forEach((animal: any) => {
             if (animal.animal_status == "A VENDRE") {
               this.animals.push(animal);
@@ -58,14 +55,12 @@ export class CatalogueComponent implements OnInit {
     const dialogRef = this.dialog.open(FormCreateAnimalComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
   delete(id: number){
     this.http.delete<Animals>(`${environment.url}/animals/` + id + '/')
     .subscribe((data)=>{
-      console.log(data, 'delete');
       this.getAnimals();
     })
   }

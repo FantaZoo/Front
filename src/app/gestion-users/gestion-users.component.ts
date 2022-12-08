@@ -30,7 +30,6 @@ export class GestionUsersComponent implements OnInit {
   delete(id: number){
     this.http.delete<User[]>(`${environment.url}/users/` + id + '/')
     .subscribe((data)=>{
-      console.log(data, 'delete');
       this.getUsers();
     })
   }

@@ -16,6 +16,7 @@ export class DescriptionComponent implements OnInit {
   href: string = this.router.url.split('/')[2];
   animal: any;
   sexe: string = "";
+  alreadyInCart: boolean = true;
 
   shoppingCart!: ShoppingCart;
 
@@ -26,6 +27,11 @@ export class DescriptionComponent implements OnInit {
       .subscribe((data) => {
         this.animal = data;
         this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
+        this.http.get(`${environment.url}/shoppingcarts/?userID=${localStorage.getItem('user')}`).subscribe((data: any) => {
+          data.forEach((element: any) => {
+            if (element.productID !== this.animal.id) this.alreadyInCart = false;
+          });
+        });
       });
   }
 
@@ -36,7 +42,6 @@ export class DescriptionComponent implements OnInit {
     }    
     this.http.post<ShoppingCart>(`${environment.url}/addtocart/`, item)
       .subscribe((data) => {
-        console.log(data);
         alert("Animal ajouté au panier");
       });
   }

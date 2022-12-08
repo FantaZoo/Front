@@ -21,15 +21,12 @@ export class FormCreateAnimalComponent implements OnInit {
 
   ngOnInit(): void {
     this.animals = this.formAnimal.createEmptyAnimal();
-    console.log(this.animals);
   }
 
   create(){
-    console.log(this.animals.value);
     this.http.post<Animals>(`${environment.url}/animals/`, this.animals.value)
       .subscribe((data) => {
         this.animal = data;
-        console.log(data);
         this.router.navigate(['/']).then(() => {
           window.location.reload();
         });
