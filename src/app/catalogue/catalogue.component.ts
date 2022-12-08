@@ -28,7 +28,16 @@ export class CatalogueComponent implements OnInit {
     this.http.get<Animals[]>(`${environment.url}/animals/`)
       .subscribe((data) => {
         console.log(data);
-        this.animals = data;
+        if (!this.isAdmin) {
+          console.log("not admin");
+          data.forEach((animal: any) => {
+            if (animal.animal_status == "A VENDRE") {
+              this.animals.push(animal);
+            }
+          });
+        } else {
+          this.animals = data;
+        }
       });
   }
 

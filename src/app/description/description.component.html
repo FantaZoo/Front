@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="sub-container">
+    <div class="sub-container" *ngIf="animal">
         <div class="id-title">
             <p class="name">{{animal.animal_name}}</p>
         </div>
@@ -12,15 +12,15 @@
             <button mat-button (click)="addToCart()">Ajouter au panier</button>
         </div>
     </div>
-    <div class="sub-container">
+    <div class="sub-container" *ngIf="animal">
         <div class="description">
             {{animal.description}}
         </div>
     </div>
-    <div class="sub-container">
+    <div class="sub-container" *ngIf="animal">
         <img src="{{animal.image}}" alt="Image de l'animal">
     </div>
-    <div class="sub-container cards ">
+    <div class="sub-container cards" *ngIf="animal">
         <mat-card class="card p-2">
             <mat-card-content>
                 <span class="material-icons">cake</span>

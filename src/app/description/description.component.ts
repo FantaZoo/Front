@@ -21,18 +21,12 @@ export class DescriptionComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  ngOnInit(): void {
-    console.log("url : ", `${environment.url}/animals/${this.href}/`);
-    
+  ngOnInit(): void {    
     this.http.get(`${environment.url}/animals/${this.href}/`)
       .subscribe((data) => {
-        console.log(data);
         this.animal = data;
         this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
-        console.log(this.animal);
-
       });
-    
   }
 
   addToCart() {    
