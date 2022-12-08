@@ -3,30 +3,26 @@
         PANIER
     </h1>
 
-    <div>
+    <div class="button">
         <button mat-button (click)="openDialog()">Passer la commande</button>
     </div>
 </header>
 
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" *ngFor="let animal of products">
-  
-      <ng-container matColumnDef="nom">
-        <th mat-header-cell *matHeaderCellDef> Nom </th>
-        <td mat-cell *matCellDef="let element"> {{animal.animal_name}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="prix">
-        <th mat-header-cell *matHeaderCellDef> Prix </th>
-        <td mat-cell *matCellDef="let element"> {{animal.price}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element"> {{element.action}} </td>
-      </ng-container>    
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+<div class="mat-elevation-z8" style="width: 94%; margin: auto">
+  <mat-card>
+    <mat-card-content class="cart-list-title">
+      <p>Nom</p>
+      <p>Prix</p>
+      <p>CartID</p>
+    </mat-card-content>
+  </mat-card>
+  <div *ngFor="let product of products, let i = index">
+    <mat-card>
+      <mat-card-content class="cart-list-item">
+        <p>{{product.animal_name}}</p>
+        <p>{{product.price}} €</p>
+        <p>{{dataSource[i].id}}</p>
+      </mat-card-content>
+    </mat-card>
   </div>
+</div>
