@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+import { environment } from 'src/environments/environment';
+import { Orders } from '../share/orders';
 
 @Component({
   selector: 'app-pop-up-payment',
@@ -12,8 +16,26 @@ export class PopUpPaymentComponent implements OnInit {
 
   public payPalConfig?: IPayPalConfig;
 
+  constructor(private http: HttpClient,
+    public dialogRef: MatDialogRef<PopUpPaymentComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
     ngOnInit(): void {
       this.initConfig();
+    }
+    
+    validerPaiement(){
+      const order = {
+        userID: this.data.userID,
+        total_article: this.data.animal,
+        total_price: this.data.price
+      }
+      console.log(this.data);
+      this.http.post<Orders>(`${environment.url}/orders/`, order).subscribe((res: any) => {
+        });
+      alert("Paiement validé")
+      
+      this.dialogRef.close();
     }
 
     private initConfig(): void {

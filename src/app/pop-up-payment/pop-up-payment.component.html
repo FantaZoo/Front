@@ -1,6 +1,5 @@
 <h2 mat-dialog-title>Confirmation paiement : 
-  <!-- {{cart.total | currency: 'EUR'}} -->
-  120€
+  {{data.price}} €
 </h2>
 
 <mat-dialog-content>
@@ -9,6 +8,6 @@
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close class="annuler">Annuler</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="valider">Valider</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="valider" (click)="validerPaiement()">Valider</button>
 </mat-dialog-actions>
 
