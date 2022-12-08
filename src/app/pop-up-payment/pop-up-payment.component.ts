@@ -4,6 +4,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 import { environment } from 'src/environments/environment';
 import { Orders } from '../share/orders';
+import { ShoppingCart } from '../share/shoppingCart';
 
 @Component({
   selector: 'app-pop-up-payment',
@@ -30,11 +31,19 @@ export class PopUpPaymentComponent implements OnInit {
         total_article: this.data.animal,
         total_price: this.data.price
       }
+      const shoppingCart = {
+        products: this.data.carts
+      }
       console.log(this.data);
       this.http.post<Orders>(`${environment.url}/orders/`, order).subscribe((res: any) => {
         });
       alert("Paiement validé")
-      
+
+      this.data.cart.forEach((element: any) => {
+        console.log(element)
+        this.http.delete<ShoppingCart>(`${environment.url}/shoppingcarts/${element.productID}/`).subscribe((res: any) => {
+        });
+      });
       this.dialogRef.close();
     }
 

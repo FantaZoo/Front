@@ -61,10 +61,11 @@ export class CartComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(PopUpPaymentComponent, {
-      data: {userID: this.orders.userID, price: this.orders.total_price, animal: this.orders.total_animals}
+      data: {userID: this.orders.userID, price: this.orders.total_price, animal: this.orders.total_animals, cart: this.products}
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      window.location.reload();
     });
   }
 
