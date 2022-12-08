@@ -17,9 +17,13 @@ button{
     text-align: end;
 }
 
-table{
-    position: fixed;
-    width: 94%;
-    margin-left: 3%;
-    margin-right: 3%;
+.cart-list-title {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-list-item {
+    display: flex;
+    justify-content: space-between;
 }
