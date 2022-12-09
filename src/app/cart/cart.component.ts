@@ -38,8 +38,8 @@ export class CartComponent implements OnInit {
         this.http.get(`${environment.url}/animals/${this.dataSource[i].productID}/`)
         .subscribe((data2: any) => {
           data2.productID = this.dataSource[i].id;
-          price += data2.price;
           this.products.push(data2);
+          price += data2.price;
           let numberAnimals = this.products.length; 
           this.orders.total_animals = numberAnimals;
           if (i === this.dataSource.length - 1) {
