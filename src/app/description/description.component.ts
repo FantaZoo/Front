@@ -33,9 +33,13 @@ export class DescriptionComponent implements OnInit {
       .subscribe((data) => {
         this.animal = data;
         this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
-        this.http.get(`${environment.url}/shoppingcarts/?userID=${localStorage.getItem('user')}`).subscribe((data: any) => {
-          data.forEach((element: any) => {
-            if (element.productID !== this.animal.id) isInCart = true;
+        this.http.get(`${environment.url}/shoppingcarts/?userID=${localStorage.getItem('user')}`).subscribe((data2: any) => {
+          let i = 0;
+          if (data2.length === 0) this.alreadyInCart = false;
+          data2.forEach((element: any) => {
+            if (element.productID == this.animal.id) isInCart = true;
+            if (i === data2.length - 1) this.alreadyInCart = isInCart;
+            i += 1;
           });
         });
       });
@@ -54,6 +58,7 @@ export class DescriptionComponent implements OnInit {
     this.http.post<ShoppingCart>(`${environment.url}/addtocart/`, item)
       .subscribe((data) => {
         alert("Animal ajouté au panier");
+        window.location.reload();
       });
   }
 }
