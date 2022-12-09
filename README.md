@@ -5,8 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Pour lancer le Projet
 
 Run `npm install` to install dependencies then `ng serve` to launch the dev server.
-
-<h4>Navigate to `http://localhost:4200/`.
+The website will run at `http://localhost:4200/`.
 
 <h2>Users</h2>
 
