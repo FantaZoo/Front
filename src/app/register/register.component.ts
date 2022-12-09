@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
   {
     this.http.get(`${environment.url}/users/?email=${this.mailConnexion}`)
           .subscribe((data: any) => {
-            if (data === 0 || data > 1) {
+            if (data.length === 0 || data.length > 1) {
               alert('Aucun utilisateur trouvé');
             } else {
               if (data[0].password !== this.passwordConnexion) {
