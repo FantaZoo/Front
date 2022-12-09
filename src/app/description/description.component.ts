@@ -23,16 +23,18 @@ export class DescriptionComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {    
+    let isInCart = false;
     this.http.get(`${environment.url}/animals/${this.href}/`)
       .subscribe((data) => {
         this.animal = data;
         this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
         this.http.get(`${environment.url}/shoppingcarts/?userID=${localStorage.getItem('user')}`).subscribe((data: any) => {
           data.forEach((element: any) => {
-            if (element.productID !== this.animal.id) this.alreadyInCart = false;
+            if (element.productID !== this.animal.id) isInCart = true;
           });
         });
       });
+      this.alreadyInCart = isInCart;
   }
 
   addToCart() {    
