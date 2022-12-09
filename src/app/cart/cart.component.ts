@@ -33,21 +33,22 @@ export class CartComponent implements OnInit {
     .subscribe((data) => {
       this.dataSource = data;
       this.orders.userID = userid;
-      let price = 0;
-      for (let i = 0; i < this.dataSource.length; i++) {        
-        this.http.get(`${environment.url}/animals/${this.dataSource[i].productID}/`)
+      this.dataSource.forEach((element: any) => {
+        this.http.get(`${environment.url}/animals/${element.productID}/`)
         .subscribe((data2: any) => {
-          data2.productID = this.dataSource[i].id;
+          data2.productID = element.id;
           this.products.push(data2);
-          price += data2.price;
-          let numberAnimals = this.products.length; 
-          this.orders.total_animals = numberAnimals;
-          if (i === this.dataSource.length - 1) {
+          if (this.products.length === this.dataSource.length) {
+            const price = this.products.reduce((accumulator: any, object: any) => {
+              return accumulator + object.price;
+            }, 0);
             this.total_price = price;
             this.orders.total_price = price;
           }
+          let numberAnimals = this.products.length; 
+          this.orders.total_animals = numberAnimals;
         });
-      }
+      });
     })
   }
 
@@ -56,8 +57,10 @@ export class CartComponent implements OnInit {
   }
 
   openDialog() {
+    console.log(this.total_price);
+    
     const dialogRef = this.dialog.open(PopUpPaymentComponent, {
-      data: {userID: this.orders.userID, price: this.orders.total_price, animal: this.orders.total_animals, cart: this.products}
+      data: {userID: this.orders.userID, price: this.total_price, animal: this.orders.total_animals, cart: this.products}
     });
 
     dialogRef.afterClosed().subscribe(result => {
