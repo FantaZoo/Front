@@ -1,27 +1,49 @@
-# Front
+<h1>Documentation FRONT Fantazoo</h1>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
-## Development server
+# Pour lancer le Projet
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm install` to install dependencies then `ng serve` to launch the dev server.
 
-## Code scaffolding
+<h4>Navigate to `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<h2>Users<h2>
 
-## Build
+Every type of user can create an account and sign in.
+There a three types of users :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<h4>The visitors</h4>
 
-## Running unit tests
+They are not connected. They can see the animals list if they are not sold yet and have access to the connection page.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<h4>The administrators</h4>
 
-## Running end-to-end tests
+They can :
+    see the full list of animals (sold and available)
+    see description of each animals
+    create new animals
+    delete animals if they die
+    see the list of users
+    delete users
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+They can't buy animals (they will need a normal user account).
 
-## Further help
+There is one administrator by default :
+    login: admin@mail.com
+    password: admin
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<h4>The buyers</h4>
+
+They can :
+    see the list of available animals
+    see description of each animals
+    add an animal to the cart
+    access cart page
+    from cart page, they can place an order
+
+
+
+
+
+

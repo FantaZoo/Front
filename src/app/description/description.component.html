@@ -14,7 +14,7 @@
         <div>
             <!-- {{log animal.}} -->
             <!-- {{log alreadyInCart}} -->
-            <button mat-button (click)="addToCart()" *ngIf="animal.animal_status == 'A VENDRE' && !alreadyInCart">Ajouter au panier</button>
+            <button mat-button (click)="addToCart()" *ngIf="animal.animal_status == 'A VENDRE' && !alreadyInCart && !isAdmin && isConnected">Ajouter au panier</button>
         </div>
     </div>
     <div class="sub-container" *ngIf="animal">

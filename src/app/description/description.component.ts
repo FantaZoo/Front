@@ -17,6 +17,8 @@ export class DescriptionComponent implements OnInit {
   animal: any;
   sexe: string = "";
   alreadyInCart: boolean = true;
+  isAdmin: boolean = false;
+  isConnected: boolean = false;
 
   shoppingCart!: ShoppingCart;
   interval: any;
@@ -24,7 +26,15 @@ export class DescriptionComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {  
+    const storageUser = localStorage.getItem('user');
+    if (storageUser) {
+      this.isConnected = true;
+    }
+    const storageAdmin = localStorage.getItem('admin');
+    if (storageAdmin) {
+      this.isAdmin = true;
+    }  
     this.interval = setInterval(() => {
       if (this.animal !== 0){
         this.isLoading = false;
