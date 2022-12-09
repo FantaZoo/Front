@@ -8,7 +8,7 @@ Run `npm install` to install dependencies then `ng serve` to launch the dev serv
 
 <h4>Navigate to `http://localhost:4200/`.
 
-<h2>Users<h2>
+<h2>Users</h2>
 
 Every type of user can create an account and sign in.
 There a three types of users :
