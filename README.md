@@ -7,16 +7,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm install` to install dependencies then `ng serve` to launch the dev server.
 The website will run at `http://localhost:4200/`.
 
-<h2>Users</h2>
+# Users
 
 Every type of user can create an account and sign in.
 There a three types of users :
 
-<h4>The visitors</h4>
+## The visitors
 
 They are not connected. They can see the animals list if they are not sold yet and have access to the connection page.
 
-<h4>The administrators</h4>
+## The administrators
 
 They can :
     see the full list of animals (sold and available)
@@ -32,7 +32,7 @@ There is one administrator by default :
     login: admin@mail.com
     password: admin
 
-<h4>The buyers</h4>
+## The buyers
 
 They can :
     see the list of available animals
