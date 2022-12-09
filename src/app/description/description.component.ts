@@ -19,11 +19,16 @@ export class DescriptionComponent implements OnInit {
   alreadyInCart: boolean = true;
 
   shoppingCart!: ShoppingCart;
+  interval: any;
+  isLoading: boolean = true;
 
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {    
-    let isInCart = false;
+    this.interval = setInterval(() => {
+      if (this.animal !== 0){
+        this.isLoading = false;
+        let isInCart = false;
     this.http.get(`${environment.url}/animals/${this.href}/`)
       .subscribe((data) => {
         this.animal = data;
@@ -38,7 +43,11 @@ export class DescriptionComponent implements OnInit {
           });
         });
       });
-      
+      this.alreadyInCart = isInCart;
+      } else {
+        this.isLoading = true;
+    }
+  }, 1000);   
   }
 
   addToCart() {    
@@ -52,5 +61,4 @@ export class DescriptionComponent implements OnInit {
         window.location.reload();
       });
   }
-
 }

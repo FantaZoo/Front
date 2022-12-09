@@ -12,7 +12,6 @@
         color: aliceblue;
         width: 50%;
     }
-
     .sub-container {
     display: block;
     justify-content: center;
@@ -94,6 +93,11 @@
             }
         }
     }
+}
+
+mat-spinner{
+    margin-left: 47%;
+    margin-top: 15%;
 }
 
 @media screen and (max-width: 768px)
