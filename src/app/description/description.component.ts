@@ -39,21 +39,20 @@ export class DescriptionComponent implements OnInit {
       if (this.animal !== 0){
         this.isLoading = false;
         let isInCart = false;
-    this.http.get(`${environment.url}/animals/${this.href}/`)
-      .subscribe((data) => {
-        this.animal = data;
-        this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
-        this.http.get(`${environment.url}/shoppingcarts/?userID=${localStorage.getItem('user')}`).subscribe((data2: any) => {
-          let i = 0;
-          if (data2.length === 0) this.alreadyInCart = false;
-          data2.forEach((element: any) => {
-            if (element.productID == this.animal.id) isInCart = true;
-            if (i === data2.length - 1) this.alreadyInCart = isInCart;
-            i += 1;
+        this.http.get(`${environment.url}/animals/${this.href}/`)
+          .subscribe((data) => {
+            this.animal = data;
+            this.sexe = this.animal.sexe === 'M' ? 'Mâle' : 'Femelle';
+            this.http.get(`${environment.url}/shoppingcarts/?userID=${localStorage.getItem('user')}`).subscribe((data2: any) => {
+              let i = 0;
+              if (data2.length === 0) this.alreadyInCart = false;
+              data2.forEach((element: any) => {
+                if (element.productID == this.animal.id) isInCart = true;
+                if (i === data2.length - 1) this.alreadyInCart = isInCart;
+                i += 1;
+              });
+            });
           });
-        });
-      });
-      this.alreadyInCart = isInCart;
       } else {
         this.isLoading = true;
     }
