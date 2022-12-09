@@ -6,6 +6,8 @@ import { PopUpPaymentComponent } from '../pop-up-payment/pop-up-payment.componen
 import { Orders } from '../share/orders';
 import { ShoppingCart } from '../share/shoppingCart';
 import { User } from '../share/user';
+import { interval } from 'rxjs';
+
 
 export interface Cart{
   id: number;
@@ -23,12 +25,14 @@ export class CartComponent implements OnInit {
   products: any = [];
   total_price: number = 0;
   orders: Orders = new Orders();
+  isLoading: boolean = true;
+  interval: any;
 
   constructor(public dialog: MatDialog,
     private http: HttpClient) { }
   
   getCart(): void {
-    const userid = Number(localStorage.getItem('user'));
+        const userid = Number(localStorage.getItem('user'));
     this.http.get(`${environment.url}/shoppingcarts/?userID=${userid}`)
     .subscribe((data) => {
       this.dataSource = data;
@@ -48,11 +52,19 @@ export class CartComponent implements OnInit {
           }
         });
       }
-    })
+    }) 
   }
 
   ngOnInit(): void {
     this.getCart();
+    this.interval = setInterval(() => {
+      if (this.products !== 0){
+        this.isLoading = false;
+      } else {
+        this.isLoading = true;
+    }
+  }, 1000);    
+    
   }
 
   openDialog() {

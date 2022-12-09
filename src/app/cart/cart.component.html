@@ -8,6 +8,7 @@
     </div>
 </header>
 
+
 <div class="mat-elevation-z8" style="width: 94%; margin: auto">
   <mat-card>
     <mat-card-content class="cart-list-title">
@@ -16,17 +17,18 @@
       <p></p>
     </mat-card-content>
   </mat-card>
-  <div *ngFor="let product of products, let i = index">
-    <mat-card>
-      <mat-card-content class="cart-list-item">
-        <p>{{product.animal_name}}</p>
-        <p>{{product.price}} €</p>
-        <a (click)="deleteItem(product.productID)">
-          <span class="material-icons">
-            delete
-          </span>
-        </a>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <mat-spinner *ngIf="isLoading" mode="indeterminate" class="spinner"></mat-spinner>
+    <div>
+      <mat-card *ngFor="let product of products, let i = index">
+        <mat-card-content class="cart-list-item">
+          <p>{{product.animal_name}}</p>
+          <p>{{product.price}} €</p>
+          <a (click)="deleteItem(product.productID)">
+            <span class="material-icons">
+              delete
+            </span>
+          </a>
+        </mat-card-content>
+      </mat-card>
+    </div>
 </div>
