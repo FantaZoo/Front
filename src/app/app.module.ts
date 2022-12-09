@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormCreateAnimalComponent } from './form-create-animal/form-create-animal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,7 @@ import { HomeComponent } from './home/home.component';
     NgbModule,
     MatCardModule,
     MatTabsModule,
+    MatProgressSpinnerModule,
     MatTableModule,
     MatDialogModule,
     MatFormFieldModule,
