@@ -46,3 +46,27 @@ They can :
 
 
 
+
+
+
+
+
+
+#DOCKER
+
+###Prérequis : 
+Faire un build de l'app : 
+```
+npm run build
+```
+
+###1-Dockerfile
+
+###2-Builder l'image
+```
+docker build -t benoitbelloc/fantazoo-front .
+```
+###3-Vérification du buildage
+```
+docker images
+```

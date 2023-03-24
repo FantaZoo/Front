@@ -1,0 +1,20 @@
+services:
+  app:
+    image: docker.io/benoitbelloc/fantazoo-front
+    build: 
+      context: .
+    ports:
+      - 80:80
+  
+  back:
+    image: docker.io/benoitbelloc/fantazoo-back
+    build: 
+      context: ../BACK
+    ports:
+      - 8000:8000
+    networks:
+      - fantazoo
+
+networks:
+  fantazoo:
+    driver: bridge
